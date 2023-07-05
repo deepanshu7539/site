@@ -22,14 +22,14 @@ const navMenu = document.getElementById('nav-menu'),
     }
 /*=============== REMOVE MENU MOBILE ===============*/
 
-// const navLink = document.querySelector('.nav__menu')
+const navLink = document.querySelectorAll('.nav__link')
 
-// const linkAction = () =>{
-//     const navMenu = document.getElementById('nav-menu')
-//     // when we click on each nav__link, we remove the show-menu class
-//     navMenu.classList.remove('show-menu')
-// }
-// navLink.forEach(n => n.addEventListener('click', linkAction))
+const linkAction = () =>{
+    const navMenu = document.getElementById('nav-menu')
+    // when we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*=============== SWIPER PROJECTS ===============*/
 let swiperProjects = new Swiper(".projects__container",{
@@ -52,7 +52,7 @@ let swiperProjects = new Swiper(".projects__container",{
 });
 
 /*=============== SWIPER TESTIMONIAL ===============*/
-let swipertestimonial = new Swiper(".testimonial__container",{
+let swiperTestimonial = new Swiper(".testimonial__container",{
      grabCursor: true,
 
      navigation: {
@@ -107,7 +107,8 @@ contactForm.addEventListener('submit', sendEmail)
 
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
+const sections = document.querySelectorAll('contact','projects')
+
     
 const scrollActive = () =>{
   	const scrollY = window.pageYOffset
@@ -176,7 +177,7 @@ const scrollHeader = () =>{
 window.addEventListener('scroll', scrollHeader)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = scrollReveal({
+const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
     duration: '2500',
@@ -184,8 +185,8 @@ const sr = scrollReveal({
     //reset: true /* Animation repeat */
 })
 
-sr.reveal(`.home__data, projects__container, testimonial__container`)
+sr.reveal(`.home__data, projects__container, testimonial__container, footer__container`)
 sr.reveal(`.home__info div`, {delay: 600, origin: 'bottom', interval: 100})
-sr.reveal(`.skills__content:nth-child(1)`, {origin: 'left'})
-sr.reveal(`.skills__content:nth-child(2)`, {origin: 'right'})
-sr.reveal(`.qualification__container, .services__card`, {interval: 100})
+sr.reveal(`.skills__content:nth-child(1), contact__content:nth-child(1)`, {origin: 'left'})
+sr.reveal(`.skills__content:nth-child(2), contact__content:nth-child(2)`, {origin: 'right'})
+sr.reveal(`.qualification__content, .services__card`, {interval: 100})
